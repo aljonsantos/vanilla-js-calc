@@ -1,0 +1,172 @@
+:root {
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+
+  --ff-body: 'Poppins', sans-serif;
+  --ff-serif: 'Young Serif', serif;
+  --ff-display: 'Gabarito', sans;
+
+  --clr-bg: #FFFFFF;
+  --clr-bg-100: #FFFFFF;
+  --clr-bg-200: #FAFAFA;
+  --clr-bg-300: #F5F5F5;
+  --clr-bg-400: #E6E6E6;
+  --clr-bg-500: #6a6f74;
+
+  --clr-text-100: #000000;
+  --clr-text-200: #4D4D4D;
+
+  --border-100: 1px solid #E6E6E6;
+  --border-200: 1px solid #CCCCCC;
+  
+  --box-shadow-1: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  --box-shadow-2: rgba(0, 0, 0, 0.1) 0 1px 4px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex
+}
+
+.grid {
+  display: grid;
+}
+
+body.dark {
+  --clr-bg: #0A0E12;
+  --clr-bg-100: #0A0E12;
+  --clr-bg-200: #21262D;
+  --clr-bg-300: #171C24;
+  --clr-bg-400: #171C24;
+  --clr-bg-500: #98a3b2;
+
+  --clr-text-100: #FFFFFF;
+  --clr-text-200: #C7C8C8;
+
+  --border-100: 1px solid #323840;
+  --border-200: 1px solid #272c32;
+
+  --box-shadow-1: rgba(180, 180, 180, 0.06) 0px 10px 36px 0px, rgba(180, 180, 180, 0.06) 0px 0px 0px 1px;
+  --box-shadow-2: rgba(180, 180, 180, 0.1) 0 1px 4px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: var(--clr-bg);
+  font-family: var(--ff-body);
+  color: var(--clr-text-100);
+}
+
+.app {
+  width: 300px;
+  background: var(--clr-bg-100);
+  padding: 30px 20px;
+  border: var(--border-200);
+  border-radius: 14px;
+  box-shadow: var(--box-shadow-1);
+}
+
+.app > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-600);
+}
+
+.theme-switcher {
+  font-size: var(--fs-300);
+}
+
+.display {
+  height: 100px;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--ff-display);
+  background: var(--clr-bg-400);
+  text-align: right;
+  border: var(--border-200);
+  border-radius: 8px;
+  padding: 15px 20px;
+}
+
+.display__eq {
+  height: 28px;
+  font-size: var(--fs-500);
+  font-weight: 400;
+}
+
+.display__main {
+  font-size: var(--fs-700);
+  font-weight: 700;
+}
+
+.keypad {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 40px;
+  gap: 12px;
+}
+
+.keypad button {
+  font-family: inherit;
+  font-size: var(--fs-400);
+  background: var(--clr-bg-200);
+  color: var(--clr-text-200);
+  border: var(--border-100);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-2);
+  cursor: pointer;
+}
+
+.keypad button:nth-last-child(-n+2) {
+  grid-column: span 2;
+}
+
+.keypad button:active {
+  background: var(--clr-bg-300);
+  box-shadow: none;
+  transform: translateY(1px);
+}
+
+.toggle {
+  display: inline-block;
+  height: 16px;
+  width: 32px;
+  background: var(--clr-bg-200);
+  border: var(--border-200);
+  border-radius: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.toggle__btn {
+  height: 100%;
+  aspect-ratio: 1;
+  background: var(--clr-bg-500);
+  border-radius: 50%;
+  outline: var(--border-200);
+  transition: transform 0.2s ease-in-out;
+}
+
+.toggle.active .toggle__btn {
+  transform: translateX(16px);
+}
